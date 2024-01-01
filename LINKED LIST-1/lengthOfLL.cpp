@@ -25,7 +25,7 @@ class Node{
 int length(Node *head)
 {
 	Node *temp = head;
-    int cnt = 1; // cause there is something in the head for sure
+    int cnt = 0; // cause there is something in the head for sure
     while(temp->next!=NULL){ // ensures that -1 isnt included in the count for length of LL
         cnt+=1;
         temp = temp->next;
