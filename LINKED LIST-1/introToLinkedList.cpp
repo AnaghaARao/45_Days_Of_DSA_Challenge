@@ -20,4 +20,10 @@ int main(){
     cout << n1.data << " " << n2.data << endl;
     Node *head = &n1;
     cout << head -> data <<endl;
+
+    // dynamic creation of nodes:
+    Node *n3 = new Node(10);
+    Node *n4 = new Node(22);
+    Node *head = n3;
+    n3->next = n4;
 }
