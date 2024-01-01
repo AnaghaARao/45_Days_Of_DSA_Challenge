@@ -15,11 +15,14 @@ class Node{
 
 void printIthNode(Node *head, int i)
 {
-    Node *temp = head;
-    int pos = 0;
-    while(pos!=i && temp->next!=NULL){
-        pos++;
-        temp = temp->next;
-    }
-    cout<< temp->data;
+	Node *temp = head;
+	int pos = 0;
+	while(temp!=NULL){
+		if(pos==i) break;
+		temp = temp->next;
+		pos++;
+	}
+
+	if(temp == NULL) return;
+	cout<< temp->data;
 }
