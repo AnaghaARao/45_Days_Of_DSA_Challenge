@@ -15,18 +15,39 @@ public:
     }
 };
 
-Node *reverseLinkedListRec(Node *head)
+Node *reverseLL_1(Node *head){
+	if(head==NULL || head->next == NULL){
+		return head;
+	}
+	Node *smallAns = reverseLL_1(head->next);
+
+	Node *tail = head->next;
+	tail->next = head;
+	head->next = NULL;
+	return smallAns;
+}
+
+class Pair{
+	public:
+		Node *head;
+		Node *tail;
+};
+
+Pair helper(Node *head)
 {
     //Write your code here
 	if(head==NULL || head->next==NULL) return head;
-	Node *temp;
-	Node *curr = head;
-	Node *prev = NULL;
-	while(curr!=NULL){
-		temp = curr->next;
-		curr->next = prev;
-		prev = curr;
-		curr = temp;
-	}
-	return prev;
+	
+	Pair smallAns = reverseLinkedListRec(head->next);
+
+	smallAns.tail->next = head;
+	head->next = NULL;
+	Pair temp;
+	temp.head = smallAns.head;
+	temp.tail = head;
+	return temp;
+}
+
+Node* reverseLL(Node *head){
+	return helper(head).head;
 }
