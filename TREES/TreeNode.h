@@ -7,6 +7,9 @@ class TreeNode{
         T data;
         vector<TreeNode*> children; // taken so by default
         // actual declarartions: vector<TreeNode<T>*> children;
+        TreeNode(T data){
+            this->data = data;
+        }
 };
 
 
