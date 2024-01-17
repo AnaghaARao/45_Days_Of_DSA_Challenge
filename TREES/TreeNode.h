@@ -1,5 +1,5 @@
 #include<vector>
-using namepace std;
+using namespace std;
 
 template <typename T>
 class TreeNode{
