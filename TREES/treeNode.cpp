@@ -75,6 +75,14 @@ void printTree(TreeNode<int>* root){
     // no need for a base case as the loop automatically works as one
 }
 
+int countNodes(TreeNode<int>* root){
+    int cnt = 1;
+    for(int i = 0 ; i < root->children.size() ; i++){
+        cnt += countNodes(root->children.at(i));
+    }
+    return cnt;
+}
+
 int main(){
     // TreeNode<int>* root = new TreeNode<int>(1);
     // TreeNode<int>* node1 = new TreeNode<int>(2);
