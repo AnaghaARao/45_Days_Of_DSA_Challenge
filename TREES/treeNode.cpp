@@ -2,6 +2,7 @@
 #include "TreeNode.h"
 using namespace std;
 
+// input: 1 3 2 3 4 2 5 6 2 7 8 0 0 0 0 1 9 0
 TreeNode<int>* takeInputLevelWise(){
     int rootData;
     cout<<"Enter root data: "<<endl;
@@ -76,6 +77,7 @@ void printTree(TreeNode<int>* root){
 }
 
 int countNodes(TreeNode<int>* root){
+    if(root == nullptr) return 0;
     int cnt = 1;
     for(int i = 0 ; i < root->children.size() ; i++){
         cnt += countNodes(root->children.at(i));
