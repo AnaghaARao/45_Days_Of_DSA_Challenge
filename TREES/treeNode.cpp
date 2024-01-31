@@ -3,6 +3,7 @@
 using namespace std;
 
 // input: 1 3 2 3 4 2 5 6 2 7 8 0 0 0 0 1 9 0
+// takes input level wise
 TreeNode<int>* takeInputLevelWise(){
     int rootData;
     cout<<"Enter root data: "<<endl;
@@ -29,7 +30,7 @@ TreeNode<int>* takeInputLevelWise(){
     return root;
 }
 
-
+// takes input root-node wise
 TreeNode<int>* takeInput() {
     int rootData;
     cout<< "Enter data\n";
@@ -45,6 +46,7 @@ TreeNode<int>* takeInput() {
     return root;
 }
 
+// prints tree level wise
 void printTreeLevelWise(TreeNode<int>* root){
     if(root == NULL) return;
     queue<TreeNode<int>*> pending;
@@ -63,6 +65,7 @@ void printTreeLevelWise(TreeNode<int>* root){
 
 }
 
+// prints tree root-node wise
 void printTree(TreeNode<int>* root){
     if(root==NULL) return; // #Edge_Case
     cout<< root->data <<":";
@@ -76,6 +79,7 @@ void printTree(TreeNode<int>* root){
     // no need for a base case as the loop automatically works as one
 }
 
+// function to count number of trees
 int countNodes(TreeNode<int>* root){
     if(root == nullptr) return 0;
     int cnt = 1;
@@ -83,6 +87,15 @@ int countNodes(TreeNode<int>* root){
         cnt += countNodes(root->children.at(i));
     }
     return cnt;
+}
+
+// function to delete tree
+void deleteTree(TreeNode<int>* root){
+    if(root == nullptr) return;
+    for(int i = 0 ; i < root->children.size() ; i++){
+        deleteTree(root->children.at(i));
+    }
+    delete root;
 }
 
 int main(){
@@ -95,5 +108,9 @@ int main(){
 
     TreeNode<int>* root = takeInputLevelWise();
     printTreeLevelWise(root);
-    // ToDo delete the tree
+    // ToDo delete the tree - Function: deleteTree(root)
+    // delete tree - destructor
+    delete root; // DESTRUCTOR is called
+    deleteTree(root); // FUNCTION is called
+    // in both cases the whole tree is deleted
 }
