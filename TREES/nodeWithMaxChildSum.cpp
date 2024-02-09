@@ -1,5 +1,6 @@
 /*
-Given a generic tree, find and return the node for which sum of its data and data of all its child nodes is maximum. In the sum, data of the node and data of its immediate child nodes has to be taken.
+Given a generic tree, find and return the node for which sum of its data and data of all its child nodes is maximum. 
+In the sum, data of the node and data of its immediate child nodes has to be taken.
 */
 
 #include<bits/stdc++.h>
