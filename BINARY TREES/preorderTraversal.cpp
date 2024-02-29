@@ -3,16 +3,16 @@
 using namespace std;
 
 vector<int> preOrder(TreeNode<int> * root){
-    vector<int> ans;
+    vector<int> result;
     if(root == NULL){
-        return ans;
+        return result;
     }
 
     vector<int> leftPreorder = preOrder(root->left);
-    ans.insert(ans.end(), leftPreorder.begin(), leftPreorder.end());
+    result.insert(result.end(), leftPreorder.begin(), leftPreorder.end());
 
     vector<int> rightPreorder = preOrder(root->right);
-    ans.insert(ans.end(), rightPreorder.begin(), rightPreorder.end());
+    result.insert(result.end(), rightPreorder.begin(), rightPreorder.end());
 
-    return ans;
+    return result;
 }
