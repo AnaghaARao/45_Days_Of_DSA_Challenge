@@ -1,0 +1,39 @@
+/* Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+Return the running sum of nums. 
+
+Example 1:
+
+Input: nums = [1,2,3,4]
+Output: [1,3,6,10]
+Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// METHOD-1:
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        vector<int> res;
+        int n = nums.size(), sum = 0;
+
+        for(int i = 0 ; i < n ; i++){
+            sum += nums[i];
+            res.push_back(sum);
+        }
+
+        return res;
+    }
+};
+
+// NETHOD-2:
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        for(int i=1;i<nums.size();i++){
+            nums[i]+=nums[i-1];
+        }
+        return nums;
+    }
+};
