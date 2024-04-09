@@ -32,8 +32,12 @@ public:
             }
         }
 
-        res = cnt/2; // min no. of swaps = cnt/2
-        if(cnt%2) res++; // if cnt is odd no. then increase value of res by 1
+        // After processing all characters in the string, divide cnt by 2 and assign the result to res. 
+        // This is because each swap resolves two excess closing brackets.
+        // If cnt is odd (i.e., cnt % 2 == 1), it means there's an odd number of excess closing brackets. 
+        // In this case, an additional swap is required to balance the string. So, increment res by 1.
+        res = cnt/2; 
+        if(cnt%2) res++; 
         return res; // return res
     }        
 };
