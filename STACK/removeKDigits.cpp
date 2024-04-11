@@ -34,9 +34,7 @@ public:
         size_t start_pos = res.find_first_not_of('0');
         if (start_pos != string::npos) {
             res = res.substr(start_pos);
-        } else {
-            res = "0";
-        }
+        } else res = "0";
 
         return res;
     }
