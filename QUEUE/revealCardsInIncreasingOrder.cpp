@@ -34,38 +34,20 @@ using namespace std;
 class Solution {
 public:
     vector<int> deckRevealedIncreasing(vector<int>& deck) {
-        // step-1 sort the deck in ascending order
-        vector<int> sorted;
-        sorted = sort(deck.begin(), deck.end());
-
-        // step-2 create a queue - to store the indices of the cards in the deck
-        queue<int> indices;
-
-        // step-3 reveal cards
-        int i , n = deck.size();
-        vector<int>temp;
-        for(i = 0 ; i < n ; i+=2){
-            indices.push(i);
-            if(i<n-1){
-                indices.push(indices.front());
-                indices.pop();
-            }
+        int n = deck.size();
+        std::sort(deck.begin(), deck.end());
+        std::deque<int> st;
+        st.push_front(deck[n - 1]);
+        for (int i = n - 2; i >= 0; i--) {
+            st.push_front(st.back());
+            st.pop_back();
+            st.push_front(deck[i]);
         }
-
-        // step-4 reorder the deck
-        for(int i = 0 ; i < n ; i++){
-            temp[i] = sorted[indices[i]];
+        std::vector<int> revealed;
+        for (int i = 0; i < n; i++) {
+            revealed.push_back(st.front());
+            st.pop_front();
         }
-
-        // step-5 return the reordered deck
-        return temp;
-
-
+        return revealed;
     }
 };
-
-
-
-Return the Reordered Deck:
-The reordered deck contains the cards revealed in increasing order.
-Return the reordered deck as the final result.
