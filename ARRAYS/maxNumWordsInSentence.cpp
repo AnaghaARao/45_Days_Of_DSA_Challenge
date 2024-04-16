@@ -18,6 +18,6 @@ public:
             }
             maxx = max(maxx,cnt);
         }
-        return max;
+        return maxx;
     }
 };
