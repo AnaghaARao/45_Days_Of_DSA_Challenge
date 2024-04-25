@@ -1,0 +1,3 @@
+Binary Search trees are a speacial type of binary tree which are inspired from the Binary Search Algorithm.
+In a BST, left subtree has nodes with data value less than root
+and the right subtree has nodes with data value more than root
