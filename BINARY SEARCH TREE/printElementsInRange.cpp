@@ -6,7 +6,7 @@ Print the elements in increasing order. */
 #include "BinaryTreeNode.h"
 using namespace std;
 
-helper(BinaryTreeNode<int>* root, int k1, int k2, vector<int>& res){
+void helper(BinaryTreeNode<int>* root, int k1, int k2, vector<int>& res){
     if(root == NULL) return;
 
     if(root->data >= k1 && root->data <= k2) res.push_back(root->data);
