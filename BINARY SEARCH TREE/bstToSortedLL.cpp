@@ -15,48 +15,52 @@ class Node{
     }
 };
 
-Node<int>* helper(BinaryTreeNode<int>* root, Node<int>* lhead, Node<int>* ltail, Node<int>* rhead, Node<int>* rtail ){
-    if(root == nullptr) return nullptr;
+Node<int>* mergeList(Node<int>* list1 , Node<int>* list2){
+    if(list1 == NULL) return list2;
+    if(list2 == NULL) return list1;
 
-    Node<int>* ltemp = helper(root->left, lhead, ltail, rhead, rtail);
-    if(ltemp != nullptr){
-        if(lhead == nullptr && ltail == nullptr){
-            lhead = ltail = ltemp;
-        }else{
-            ltail->next = ltemp;
-            ltail = ltemp;
+    Node<int>* head = NULL;
+    Node<int>* tail = NULL;
+
+    while(list1 != NULL && list2 != NULL){
+        if(list1->data <= list2->data){
+            if(head == NULL){
+                head = tail = list1;
+            }
+            else{
+                tail->next = list1;
+                tail = list1;
+            }
+            list1 = list1->next;
+        }
+        else{
+            if(head == NULL){
+                head = tail = list2;
+            }
+            else{
+                tail->next = list2;
+                tail = list2;
+            }
+            list2 = list2->next;
         }
     }
 
-    Node<int>* mid = new Node<int>(root->data);
+    if(list1 != NULL) tail->next = list1;
+    if(list2 != NULL) tail->next = list2;
 
-    Node<int>* rtemp = helper(root->right, lhead, ltail, rhead, rtail);
-    if(rtemp != nullptr){
-        if(rhead == nullptr && rtail == nullptr){
-            rhead = rtail = rtemp;
-        }else{
-            rtail->next = rtemp;
-            rtail = rtemp;
-        }
-    }
-	
-	if(ltail != nullptr && mid != nullptr){
-		ltail->next = mid;
-		ltail->next = mid;
-	}
-	else if(ltail == nullptr && mid != nullptr && rhead != nullptr){
-		mid->next = rhead;
-		return mid;
-	}else return mid;
-
-    if(rhead != nullptr && ltail != nullptr){
-        ltail->next = rhead;
-		return ltail;
-    }
+    return head;
 }
 
 Node<int>* constructLinkedList(BinaryTreeNode<int>* root) {
-	// Write your code here
-    Node<int>* ans = helper(root, nullptr, nullptr, nullptr, nullptr);
-    return ans;
+	if(root == NULL) return nullptr;
+
+    Node<int>* leftList = constructLinkedList(root->left);
+    Node<int>* rightlist = constructLinkedList(root->right);
+
+    Node<int>* rootNode = new Node<int>(root->data);
+
+    Node<int>* mergeHead = mergeList(leftList, rootNode);
+    mergeHead = mergeList(mergeHead, rightlist);
+
+    return mergeHead;
 }
