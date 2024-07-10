@@ -7,15 +7,17 @@ Note: If array size is even, take first mid as root. */
 #include "BinaryTreeNode.h"
 using namespace std;
 
-BinaryTreeNode<int>* constructTree(int *input, int n) {
-    int mid;
-    if(n%2 == 0) mid = n/2-1;
-    else mid = n/2;
+BinaryTreeNode<int>* constructTreeHelper(int *input, int start, int end){
+    if(start > end) return nullptr;
+
+    int mid = (end+start)/2;
 
     BinaryTreeNode<int>* root = new BinaryTreeNode<int>(input[mid]);
-    BinaryTreeNode<int>* leftTree = constructTree(input, n/2-1);
-    BinaryTreeNode<int>* rightTree = constructTree(input+mid+1, n/2-1);
-    root->left = leftTree;
-    root->right = rightTree;
+    root->left = constructTreeHelper(input, start, start+mid);
+    root->right = constructTreeHelper(input,mid+1, end);
+    return root;
+}
+BinaryTreeNode<int>* constructTree(int *input, int n) {
+    BinaryTreeNode<int>* root = constructTreeHelper(input, 0, n-1);
     return root;
 }
