@@ -40,7 +40,7 @@ Pair isBST(BinaryTreeNode<int>* root){
     }
 
     return Pair(false, max(left.height, right.height), 0, 0); 
-    // if not, reset the min and max value, eturn max of previous BST height and return false
+    // if not, reset the min and max value for bst, return max of previous BSTs' height and return false => not bst
 
 }
 
