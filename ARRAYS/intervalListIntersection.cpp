@@ -12,8 +12,10 @@
 // 3. if no intersection exists then increment both the pointers
 
 // How to find if intersection exists?
-// 1. check if vector 1 elements are </>/= to vector 2 elements
-// 2. if interval found then append based on condition that a <= x <= b 
+// find max of start elements between the 2 list pointers
+// and find min of end elements 
+// if start <= end then push into resultant list
+// check conditions for incrementing i and j (pointers)
 
 #include<bits/stdc++.h>
 using namespace std;
