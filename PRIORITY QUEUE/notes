@@ -8,3 +8,64 @@
 a) insert
 b) getMax() / getMin() ==> TOP
 c) removeMax() / removeMin() ==> POP
+
+
+The best data structure to use for storing priority queues: Balanced BST
+
+Issues with BST:
+1. storing tree
+2. balancing factor
+
+Another good option for priority queues: Heaps
+properties of HEAP:
+1. complete binary tree
+2. heap order property
+
+Complete Binary Tree (CBT):
+1. Except the last level, all other levels should be completely filled. 
+2. The last level should be filled in L->R order only
+
+In heaps, u can delete only the last element...no other element from in-between can be deleted.
+
+In a CBT of height h-
+1. Min number of nodes: [based on GP series] 2^(h-1)
+2. Max number of nodes: [based on GP series] 2^(h)-1
+
+If total num of nodes in CBT = n, then:
+2^(h-1) <= n <= 2^(h)-1
+
+On solving the above inequality we get: [log is of base 2]
+1. h <= log(n)+1
+2. log(n+1) <= h
+=> log(n+1) <= h <= log(n)+1
+
+==> the time complexity is always log(n) cause height of CBT is always log(n)
+
+Storing CBT:
+1. to find children of a node: go to (2i+1[L], 2i+2[R]) with root at index 0
+2. we can save a CBT as array but visualize as array
+3. to find parent of a child at any index, we do this:
+    (index-1)/2 -> works for both left and right subchild
+
+Heap Order Property of Min Heap:
+1. Every node in the tree has data less than data of both its children
+
+Heap Order Property of Max Heap:
+1. Every node in the tree has data more than data of both its children
+
+Inserting into Min Heap: - O(log(n))
+- we insert at the last index and check that the inserted array data is greater than its root
+- else we replace parent with new data till heap order is satisfied
+- this swapping with parent is called UP-HEAPIFY
+
+Deleting an element in Min Heap: -O(log(n))
+- if the element to be deleted is a last leaf node then it can be directly deleted
+- if its non-leaf node or not the last leaf node, we swap the values of latest node and reqd node and delete the last element
+- then ensure that heap order is maintained
+- if not maintained, we swap node with the least data value between the children 
+- this process is called DOWN-HEAPIFY
+
+getMin() && removeMin():
+- in min heap, the min priority element is the root of CBT => getMin() - O(1)
+- swap root with last leaf node and delete min at the last leaf node position => removeMin() - O(log(n))
+- update the tree by checking for Heap Order Property
