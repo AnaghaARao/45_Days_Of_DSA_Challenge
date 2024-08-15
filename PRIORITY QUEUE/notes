@@ -1,0 +1,10 @@
+1. Priority Queues are an extension of Queues
+2. Input to these Queues are same as normal Queues
+3. They are push out of the queue based on some Priority
+4. There are 2 types of Priority: min & max
+5. Min Priority: Element with min Priority is pushed out first
+6. Max Priority: Element with max Priority is pushed out first
+7. Functions for Priority Queues:
+a) insert
+b) getMax() / getMin() ==> TOP
+c) removeMax() / removeMin() ==> POP
