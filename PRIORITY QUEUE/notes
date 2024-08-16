@@ -69,3 +69,8 @@ getMin() && removeMin():
 - in min heap, the min priority element is the root of CBT => getMin() - O(1)
 - swap root with last leaf node and delete min at the last leaf node position => removeMin() - O(log(n))
 - update the tree by checking for Heap Order Property
+
+Inplace Heap Sort:
+- for decreasing order of sorting, use min heap for inplace heap sort
+- for increasing order of sorting, use max heap for inplace heap sort
+
