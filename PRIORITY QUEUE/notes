@@ -74,3 +74,8 @@ Inplace Heap Sort:
 - for decreasing order of sorting, use min heap for inplace heap sort
 - for increasing order of sorting, use max heap for inplace heap sort
 
+K Sorted Array
+- in this array, after sorting, an element at index i would be moved at most at i-k or i+k [exclusive] only
+- if array, after sorting has moved out of this range, then it is not a K sorted array
+- to find this array use priority queue:
+-- intially enter the first k elements into the PQ, then insert one element after another and getMax after each insertion
