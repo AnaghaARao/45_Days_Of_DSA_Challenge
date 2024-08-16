@@ -1,3 +1,5 @@
+// APPROXIMATE TIME COMPLEXITY: O(n)
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -13,7 +15,7 @@ void kSortedArray(vector<int>&v, int k){
         pq.push(v[i]); // pushing the new element to match the next max element in the range of k for the next index
         j++; 
     }
-    // till now only n-k elements are sort...the below code will sort the entire list
+    // till now only n-k elements are sort and inserted...the below code will sort the entire list
     while(!pq.empty()){
         v[j] = pq.top();
         pq.pop();
