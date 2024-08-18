@@ -1,0 +1,41 @@
+Hashmaps
+- they are similar to key-value pairs
+- possible functions include:
+1. insert(K key, V value)
+2. getValue(K key)
+3. deleteKay(K key)
+
+Implementation:
+1. Linked list - O(n) for insert, delete and search
+2. Balanced BST - O(log(n)) for insert, delete & search
+3. Hash Tables - O(1) for insert, delete & search
+
+Inbuilt options for hashmaps:
+- Using BST => Maps -> O(log(n))
+- Using hashtable => Unordered Map -> O(1)
+
+Insertion:
+- using inbuilt pair class object => map.insert(pair class obj)
+- map[<key>] = <value>;
+
+Accessing:
+- using key as index => map[<key>]
+- using .at() function => map.at(<key>)
+
+-> if a particular key doesnt exist then:
+- .at() throws an error
+- [] inserts the key and gives default value of 0
+
+Check Presence:
+one value exists only once in a map -> so can use anything.
+if(map.count("ghi")>0){ 
+    // code
+}
+
+Size:
+map.size();
+
+Count:
+map.count(<key>)
+
+Erase:
