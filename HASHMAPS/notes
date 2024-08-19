@@ -20,7 +20,7 @@ Insertion:
 
 Accessing:
 - using key as index => map[<key>]
-- using .at() function => map.at(<key>)
+- using .at() function => map.at(<key>) => returns value
 
 -> if a particular key doesnt exist then:
 - .at() throws an error
@@ -39,3 +39,29 @@ Count:
 map.count(<key>)
 
 Erase:
+removes the key from the map
+- method 1: map.erase(<key>)
+- method 2: map.erase(<iterator>)
+- method 3: map.erase(<start_iterator>, <end_iterator>) => here, end_iterator is exclusive while start_iterator is inclusive
+- method 3 is not very useful for unordered_map due to lack of order
+
+Iterators:
+- to iterate through their elements
+- iterator is the best way to erase an element
+- iterator is a pointer pointing to a particular element of the map
+- declaration: unordered_map<dt1, dt2> map :: iterator it;
+- to point to the beginning of the map: it = map.begin();  ==> USE THE .begin()
+- to point to AFTER end of the map: it = map.end();  ==> USE THE .end()
+- to print all the key, value of each element: use it->first() and it->second() [-> cause we have address using the it pointer]
+- can be used for .erase() function as well
+
+Find():
+- the map.find(<key>) returns an iterator pointing to the key
+- unordered_map<dt1, dt2> map :: iterator it = map.find(<key>);
+- or => auto it = map.find(<key>);
+
+Difference between map and set:
+- they are very similar, except set stores only key and no value like map
+- map / set : uses BST [O(log(n))]
+- unordered_map / unordered_set : uses Hash Tables [O(1)]
+- all remaining elements are the same between map and set
