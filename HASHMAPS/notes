@@ -65,3 +65,38 @@ Difference between map and set:
 - map / set : uses BST [O(log(n))]
 - unordered_map / unordered_set : uses Hash Tables [O(1)]
 - all remaining elements are the same between map and set
+
+Hash map implementations using Bucket Array & Hash Function:
+- all the key-value pairs are stored in a Bucket Array
+- the key is given as input to the hash function which return a number indicating the index at which the key-value pair must be stored
+- for accessing the key-value pair, the key is again given to the hash function [STABLE FUNCTION] which return the index in which the key is stored
+
+Hash Function:
+- it has 2 main parts:
+    1. hash code
+    2. compression function
+- hash code: 
+    1. a way of converting key into an interger
+    2. different types of keys have different types of hash codes
+- compression function:
+    1. the hash code is input to this function
+    2. it return a index within the length of the bucket array
+    3. a perfect compression function can be - %(bucket_size)
+
+
+Collision Handling:
+- refers to 2 or more keys having the same hash value
+- methods of mitigation:
+    1. closed hashing
+    2. open addressing
+
+- Closed Hashing
+    1. both the keys are stored in the same place/array index
+    2. implemented using linked list
+    3. also called SEPERATE CHAINING 
+
+- Open Addressing
+    1. If the default initial box is unavailable, then an alterante location is found
+    2. Possible solutions include linear probing, quadratic probing and double hashing.
+
+- in practice, seperate chaining works as well as open addressing techniques.
