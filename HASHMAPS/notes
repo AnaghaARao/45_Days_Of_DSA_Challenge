@@ -92,7 +92,7 @@ Collision Handling:
 
 - Closed Hashing
     1. both the keys are stored in the same place/array index
-    2. implemented using linked list
+    2. additional keys in same location is implemented using linked list
     3. also called SEPERATE CHAINING 
 
 - Open Addressing
