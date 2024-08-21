@@ -1,0 +1,6 @@
+- Advantage of utilizing a trie data structure instead of a hashmap:
+    1. tries exhibit higher memory efficiency compared to hashmap
+    2. tries demonstrate efficiency in prefix search operations
+
+- in the trie data structure, every node can have a max of 26 addreses/ child node
+- the address should also be of the type of trieClass
