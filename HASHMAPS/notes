@@ -104,7 +104,7 @@ Collision Handling:
 Time Complexity & Load Factor:
 - the time complexity is proportional to length of linked list
 - number of entries per box is called load factor:n/b
-- n/b is kept < 0.7 => ensures time complexity is O(1)
+- n/b is kept < 0.7 => ensures average time complexity is O(1)
 - if load factor becomes > 0.7, REHASHING IS DONE
 
 Rehashing:
