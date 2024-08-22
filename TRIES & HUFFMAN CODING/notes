@@ -19,3 +19,15 @@ Types of Tries:
 - in suffix pattern matching, the suffixes of the word is also inserted into the suffix tries
 
 For pattern matching, we remove the attribute, isTerminal in TrieNode due to its irrelevance
+
+Huffman Coding implementation:
+- need to keep track of frequency of each character in the input
+- maintain a min priority queue to get the min frequency characters
+- the structure tooks like a binary tree - so implement a binary tree determine the code
+- to find code of each character:
+    1. maintain 2 hashmaps:
+    - one for compression(<char, code>)
+    - one for decompression(<code, char>)
+    2. find code of all characters by traversing the entire tree
+    3. on going left append '0' to the code
+    4. on going right append '1' to the code
