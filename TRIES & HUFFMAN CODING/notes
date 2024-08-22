@@ -4,3 +4,18 @@
 
 - in the trie data structure, every node can have a max of 26 addreses/ child node
 - the address should also be of the type of trieClass
+
+Types of Tries:
+
+1. Compressed Tries:
+- grouping of characters that are common to multiple words into a single node
+- grouping of characters that dont have any branching
+- they are majorly used for space optimization
+![about compressed tries](image.png)
+
+2. Suffix Tries:
+- majorly used for pattern matching
+- a normal trie allows only prefix pattern matching
+- in suffix pattern matching, the suffixes of the word is also inserted into the suffix tries
+
+For pattern matching, we remove the attribute, isTerminal in TrieNode due to its irrelevance
